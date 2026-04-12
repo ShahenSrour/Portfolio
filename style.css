@@ -1,10 +1,17 @@
+@font-face {
+  font-family: 'Awesome Lathusca';
+  src: url('./assets/fonts/Awesome%20Lathusca%20Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --bg: #FAF3E1;
   --text: #222222;
   --accent: #FA8112;
   --support: #F5E7C6;
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Awesome Lathusca', serif;
+  --font-body: 'Awesome Lathusca', serif;
   --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -20,13 +27,17 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  font-size: 1.32rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 a {
@@ -133,16 +144,16 @@ header .container {
 
 .logo {
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.5rem;
+  font-weight: 900;
+  font-size: 1.72rem;
   color: var(--accent);
   line-height: 1;
 }
 
 .logo-name {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 900;
+  font-size: 1.09rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   opacity: 0.8;
@@ -161,8 +172,8 @@ header .container {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-weight: 500;
-  font-size: 0.85rem;
+  font-weight: 700;
+  font-size: 0.98rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.5rem 0rem;
@@ -254,8 +265,8 @@ header .container {
 
 .mobile-nav-links a {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.88rem;
+  font-weight: 900;
   color: var(--text);
   text-transform: uppercase;
   display: block;
@@ -291,7 +302,7 @@ header .container {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.72rem;
   opacity: 0;
   transform: translateY(20px);
   transition: var(--transition);
@@ -415,11 +426,16 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 0 0 25% 25%;
   pointer-events: none;
 }
 
-@media (min-width: 1101px) {
+@media (max-width: 768px) {
+  .hero-image {
+    border-radius: 0 0 25% 25%;
+  }
+}
+
+@media (min-width: 769px) {
   .hero-image {
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
@@ -537,7 +553,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   /* Fades in smoothly after arrows disappear */
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 769px) {
   .hero-image-container::after {
     content: '';
     position: absolute;
@@ -568,8 +584,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: 3.45rem;
+  font-weight: 900;
   margin-bottom: 0rem;
   line-height: 1;
 }
@@ -579,8 +595,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .hero p {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.26rem;
+  font-weight: 700;
   line-height: 1;
   margin-top: 0.2rem;
   max-width: 600px;
@@ -595,8 +611,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   justify-content: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.03rem;
+  font-weight: 800;
   color: var(--text);
   opacity: 0.5;
 }
@@ -616,7 +632,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 
 /* Projects Section */
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.88rem;
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
@@ -643,13 +659,9 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   padding: 1.5rem;
   border-radius: 12px;
   transition: var(--transition);
-  cursor: pointer;
 }
 
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-}
+
 
 .project-img {
   width: 100%;
@@ -661,12 +673,12 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.72rem;
   margin-bottom: 0.5rem;
 }
 
 .project-card p {
-  font-size: 0.95rem;
+  font-size: 1.09rem;
   opacity: 0.8;
   margin-bottom: 1.5rem;
 }
@@ -677,8 +689,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   background: var(--bg);
   color: var(--accent);
   border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 800;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -693,8 +705,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 .action-btn {
   padding: 0.6rem 1rem;
   border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -724,7 +736,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   color: rgba(0, 0, 0, 0.25);
   cursor: not-allowed;
   pointer-events: none;
-  font-size: 0.75rem;
+  font-size: 0.86rem;
 }
 
 /* Coming Soon Special Card */
@@ -734,10 +746,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   box-shadow: none !important;
 }
 
-.coming-soon:hover {
-  border-color: var(--accent);
-  transform: translateY(-5px);
-}
+
 
 .coming-soon-placeholder {
   width: 100%;
@@ -745,22 +754,20 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 4.02rem;
   color: var(--accent);
   background: rgba(250, 129, 18, 0.05);
   transition: var(--transition);
 }
 
-.coming-soon:hover .coming-soon-placeholder i {
-  animation: rocketPulse 1.5s infinite ease-in-out;
-}
+
 
 /* Skills Grid & Cards */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .skill-card {
@@ -792,8 +799,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.86rem;
+  font-weight: 700;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
@@ -820,6 +827,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .skill-card:hover::after {
+  transition-delay: 100ms;
   opacity: 1;
   visibility: visible;
   bottom: 100%;
@@ -829,6 +837,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .skill-card:hover::before {
+  transition-delay: 100ms;
   opacity: 1;
   visibility: visible;
   bottom: 100%;
@@ -838,6 +847,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .skill-card:hover {
+  transition-delay: 100ms;
   transform: translateY(-8px);
   background: white;
   border-color: var(--accent);
@@ -845,7 +855,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .skill-icon {
-  font-size: 2.5rem;
+  font-size: 2.88rem;
   width: 45px;
   height: 45px;
   color: var(--text);
@@ -854,13 +864,14 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .skill-card:hover .skill-icon {
+  transition-delay: 100ms;
   color: var(--accent);
   transform: scale(1.1);
 }
 
 .skill-card span {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.03rem;
+  font-weight: 800;
   color: var(--text);
   opacity: 0.7;
   transition: var(--transition);
@@ -928,8 +939,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .form-group label {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   opacity: 0.7;
@@ -942,7 +953,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.15rem;
   transition: var(--transition);
 }
 
@@ -965,8 +976,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   color: white;
   border: none;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 1.15rem;
   cursor: pointer;
   transition: var(--transition);
   align-self: flex-start;
@@ -991,16 +1002,16 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .detail-label {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent);
 }
 
 .detail-link {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.72rem;
+  font-weight: 700;
   color: var(--text);
   transition: var(--transition);
 }
@@ -1016,14 +1027,14 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .social-links a {
-  font-size: 1rem;
+  font-size: 1.15rem;
   opacity: 0.7;
   transition: var(--transition);
 }
 
 .social-links b i {
   margin-right: 0.6rem;
-  font-size: 1.1rem;
+  font-size: 1.26rem;
 }
 
 .social-links a:hover {
@@ -1033,7 +1044,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 
 .social-links a i {
   margin-right: 0.6rem;
-  font-size: 1.1rem;
+  font-size: 1.26rem;
 }
 
 /* Footer Bottom */
@@ -1047,7 +1058,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   display: flex;
   justify-content: space-between;
   opacity: 0.4;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
 }
 
 /* Animations */
@@ -1205,11 +1216,11 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.88rem;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     padding: 0;
     background: transparent;
     backdrop-filter: none;
@@ -1220,7 +1231,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .projects-grid {
@@ -1243,7 +1254,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   .detail-link {
-    font-size: 1.25rem;
+    font-size: 1.44rem;
   }
 }
 
@@ -1262,7 +1273,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   nav ul a {
-    font-size: 0.75rem;
+    font-size: 0.86rem;
   }
 
   .hero {
@@ -1272,11 +1283,11 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .hero p {
-    font-size: 0.95rem;
+    font-size: 1.09rem;
   }
 
   section {
@@ -1284,7 +1295,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.84rem;
   }
 
   .projects-grid {
@@ -1299,7 +1310,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 
   .contact-btn {
     padding: 0.8rem 2rem;
-    font-size: 0.9rem;
+    font-size: 1.03rem;
   }
 
   .form-row {
@@ -1307,7 +1318,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   }
 
   .detail-link {
-    font-size: 1.15rem;
+    font-size: 1.32rem;
   }
 
   .footer-copy {
@@ -1353,19 +1364,19 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
 }
 
 .modal-icon i {
-  font-size: 4rem;
+  font-size: 4.6rem;
   color: var(--accent);
   margin-bottom: 1.5rem;
   display: inline-block;
 }
 
 .modal-content h2 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-bottom: 1rem;
 }
 
 .modal-content p {
-  font-size: 1.1rem;
+  font-size: 1.26rem;
   opacity: 0.8;
   line-height: 1.5;
 }

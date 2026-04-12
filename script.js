@@ -31,10 +31,10 @@ if (menuToggle && mobileNav) {
 }
 
 // Reveal animation on scroll
+const reveals = document.querySelectorAll('.reveal');
 function reveal() {
-    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
     for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
         const revealTop = reveals[i].getBoundingClientRect().top;
         const revealPoint = 150;
         if (revealTop < windowHeight - revealPoint) {
@@ -45,7 +45,7 @@ function reveal() {
     }
 }
 
-window.addEventListener('scroll', reveal);
+window.addEventListener('scroll', reveal, { passive: true });
 reveal();
 
 // Intersection Observer for the header
@@ -69,7 +69,7 @@ heroImg.onerror = function () {
     container.textContent = 'IMAGE';
 
     const hint = document.createElement('div');
-    hint.textContent = 'Please place your graduation photo as "hero.png" in the same folder.';
+    hint.textContent = 'Please place your graduation photo as "hero.png" in the assets/images folder.';
     hint.style.position = 'absolute';
     hint.style.bottom = '20px';
     hint.style.fontSize = '0.7rem';
