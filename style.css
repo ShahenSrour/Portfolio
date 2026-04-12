@@ -553,19 +553,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   /* Fades in smoothly after arrows disappear */
 }
 
-@media (min-width: 769px) {
-  .hero-image-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 15vh;
-    background: linear-gradient(to top, var(--bg) 10%, transparent 80%);
-    z-index: 2;
-    pointer-events: none;
-  }
-}
+
 
 .hero .container {
   position: absolute;
