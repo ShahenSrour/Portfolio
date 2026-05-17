@@ -647,6 +647,8 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   padding: 1.5rem;
   border-radius: 12px;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -688,6 +690,7 @@ nav ul a.is-animating .nav-icon.cpu-icon .cpu-core {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .action-btn {
