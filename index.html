@@ -1,33 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Shahen Srour</title>
-  <meta name="description" content="Portfolio of Shahen Srour is currently offline.">
-  
-  <!-- Fonts -->
+  <meta name="description" content="Shahen Srour — portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  
-  <!-- Styling -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap">
   <link rel="stylesheet" href="style.css">
+  <!-- Loaded in <head> (not deferred) so the saved language/direction is set before first paint. -->
+  <script src="script.js"></script>
 </head>
 <body>
-  <main class="container">
-    <div class="content">
-      <h1 class="name">Shahen Srour</h1>
-      <p class="title">Front-End Developer</p>
-      
-      <p class="message">My portfolio is currently down for a refresh.</p>
-      
-      <div class="links">
-        <a href="mailto:shahenmohdturki@gmail.com" class="link-item" id="emailLink">Email</a>
-        <span class="separator">/</span>
-        <a href="https://www.linkedin.com/in/shahen-srour/" target="_blank" rel="noopener noreferrer" class="link-item" id="linkedinLink">LinkedIn</a>
+
+  <button type="button" class="lang-toggle" id="lang-toggle" lang="ar"
+          aria-label="Switch to Arabic"
+          data-i18n="toggle" data-i18n-attr="aria-label:toggleAria">عربي</button>
+
+  <main class="stage" id="main">
+    <figure class="photo">
+      <img src="assets/photo.jpg" width="763" height="763"
+           alt="Portrait of Shahen Srour" data-i18n-attr="alt:photoAlt">
+    </figure>
+
+    <section class="content" aria-labelledby="name">
+      <h1 class="name" id="name" data-i18n="name">Shahen Srour</h1>
+      <span class="divider" aria-hidden="true"></span>
+
+      <div class="panels" id="panels">
+        <!-- Default content -->
+        <div class="panel panel--intro" id="panel-intro">
+          <p class="intro" data-i18n="intro">I’m a Computer Engineering graduate from the American University of Sharjah, based in the UAE. I’m bilingual in Arabic and English, and I like turning technical ideas into things people can actually use and understand. I’m currently studying Huawei HCIA and Cisco CCNA, and building projects on the side. Have a look at what I’ve made, or get in touch.</p>
+          <div class="actions">
+            <button type="button" class="btn btn--primary" id="contact-btn" data-i18n="contact">Contact me</button>
+            <button type="button" class="btn btn--outline" id="projects-btn"
+                    aria-haspopup="dialog" aria-controls="projects-modal" data-i18n="projects">Projects</button>
+          </div>
+        </div>
+
+        <!-- Socials (hidden until "Contact me") -->
+        <div class="panel panel--socials" id="panel-socials" inert>
+          <ul class="socials" aria-label="Social links" data-i18n-attr="aria-label:socialsLabel">
+            <li>
+              <a class="social-link" href="#" data-social="email">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </span>
+                <span class="social-label" data-i18n="email">Email</span>
+                <svg class="social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="social-link" href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </span>
+                <span class="social-label">LinkedIn</span>
+                <svg class="social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="social-link" href="#" data-social="whatsapp" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+                </span>
+                <span class="social-label" data-i18n="whatsapp">WhatsApp</span>
+                <svg class="social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn--ghost" id="socials-back">
+            <svg class="back-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">Back</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
+
+  <!-- Projects modal -->
+  <div class="modal" id="projects-modal" inert>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="code-callout">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="modal-title" data-i18n="modalTitle">Projects</h2>
+        <button type="button" class="btn btn--ghost btn--sm" id="modal-back">
+          <svg class="back-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span data-i18n="back">Back</span>
+        </button>
+      </div>
+
+      <div class="card-area">
+        <img class="card-img" src="assets/card.jpg" width="275" height="435"
+             alt="My business card. The access code under my name is blurred."
+             data-i18n-attr="alt:cardAlt">
+        <p class="code-callout" id="code-callout">
+          <svg class="callout-arrow" aria-hidden="true" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 38c3-10-3-20 0-34"/><path d="M6 10l6-6 6 6"/></svg>
+          <span class="callout-text" data-i18n="callout">That blurred line is the access code. You'll find it on my printed card.</span>
+        </p>
+      </div>
+
+      <form class="unlock" id="unlock-form" novalidate>
+        <label class="visually-hidden" for="code" data-i18n="codeLabel">Access code</label>
+        <div class="unlock-row">
+          <div class="code-field" id="code-field">
+            <input class="code-input" id="code" name="code" type="password"
+                   autocomplete="off" autocapitalize="off" spellcheck="false"
+                   placeholder="Access code" aria-describedby="code-error"
+                   data-i18n-attr="placeholder:codePlaceholder">
+            <button type="button" class="eye-toggle" id="eye-toggle"
+                    aria-controls="code" aria-pressed="false" aria-label="Show code">
+              <svg class="icon-eye" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>
+            </button>
+          </div>
+          <button type="submit" class="btn btn--primary" data-i18n="submit">Unlock</button>
+        </div>
+        <p class="error" id="code-error" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>
