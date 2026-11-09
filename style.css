@@ -274,9 +274,16 @@ html[dir="rtl"] .back-icon { transform: scaleX(-1); }
   padding: 0;
   border-top: 1px solid var(--line);
 }
-.socials li { border-bottom: 1px solid var(--line); }
+.socials li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
 
 .social-link {
+  flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -302,6 +309,49 @@ html[dir="rtl"] .back-icon { transform: scaleX(-1); }
 .social-icon svg { width: 18px; height: 18px; }
 
 .social-label { flex: 1; }
+
+/* Email row: label with the address underneath */
+.social-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.social-sub {
+  align-self: flex-start; /* sits at the start edge in both LTR and RTL */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+.social-link:hover .social-sub { color: var(--text); }
+
+.copy-btn {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--gold-line);
+  border-radius: 8px;
+  color: var(--gold);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.copy-btn:hover { background: var(--gold-soft); }
+.copy-btn svg { width: 17px; height: 17px; }
+.copy-btn .icon-check,
+.copy-btn.is-copied .icon-copy { display: none; }
+.copy-btn.is-copied .icon-check { display: block; }
+.copy-btn.is-copied { background: var(--gold); border-color: var(--gold); color: var(--bg); }
 
 .social-arrow {
   width: 18px;

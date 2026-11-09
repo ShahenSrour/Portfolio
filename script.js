@@ -24,7 +24,7 @@
    ===================================================================== */
 
 const SOCIALS = {
-  email: "mailto:shahenmohdturki@gmail.com",
+  email: "shahenmohdturki@gmail.com", // just the address; shown with a Copy button
   linkedin: "https://www.linkedin.com/in/shahen-srour/",
   whatsapp: "https://wa.me/971504512971", // +971 50 451 2971 (digits only, no + or spaces)
 };
@@ -42,6 +42,9 @@ const TEXT = {
     socialsLabel: "Social links",
     email: "Email",
     whatsapp: "WhatsApp",
+    copyEmail: "Copy email address",
+    copied: "Email address copied",
+    copyFailed: "Couldn't copy automatically. The address is selected, press Ctrl+C.",
     back: "Back",
     modalTitle: "Projects",
     codeLabel: "Access code",
@@ -65,6 +68,9 @@ const TEXT = {
     socialsLabel: "روابط التواصل",
     email: "البريد الإلكتروني",
     whatsapp: "واتساب",
+    copyEmail: "نسخ البريد الإلكتروني",
+    copied: "تم نسخ البريد الإلكتروني",
+    copyFailed: "تعذّر النسخ تلقائياً. العنوان محدد، اضغط Ctrl+C.",
     back: "رجوع",
     modalTitle: "المشاريع",
     codeLabel: "رمز الدخول",
@@ -219,9 +225,57 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLang(currentLang);
 
   /* ---------- Social links ---------- */
+  const emailAddress = SOCIALS.email.replace(/^mailto:/i, "");
   $$("[data-social]").forEach((link) => {
-    const href = SOCIALS[link.dataset.social];
-    if (href) link.href = href;
+    const key = link.dataset.social;
+    if (key === "email") link.href = "mailto:" + emailAddress;
+    else if (SOCIALS[key]) link.href = SOCIALS[key];
+  });
+  $("#email-address").textContent = emailAddress;
+
+  /* ---------- Copy email ---------- */
+  const copyBtn = $("#copy-email");
+  const copyStatus = $("#copy-status");
+  let copyTimer;
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Older browsers / non-secure pages: hidden textarea fallback
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch { /* ignore */ }
+      ta.remove();
+      copyBtn.focus({ preventScroll: true });
+      return ok;
+    }
+  }
+
+  copyBtn.addEventListener("click", async () => {
+    const t = TEXT[currentLang];
+    const ok = await copyText(emailAddress);
+    clearTimeout(copyTimer);
+    if (ok) {
+      copyBtn.classList.add("is-copied");
+      copyBtn.setAttribute("aria-label", t.copied);
+      copyStatus.textContent = t.copied;
+    } else {
+      // Last resort: select the address so it can be copied by hand
+      window.getSelection().selectAllChildren($("#email-address"));
+      copyStatus.textContent = t.copyFailed;
+    }
+    copyTimer = setTimeout(() => {
+      copyBtn.classList.remove("is-copied");
+      copyBtn.setAttribute("aria-label", TEXT[currentLang].copyEmail);
+      copyStatus.textContent = "";
+    }, 2000);
   });
 
   /* ---------- Contact <-> socials panel ---------- */

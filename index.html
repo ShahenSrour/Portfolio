@@ -47,9 +47,17 @@
                 <span class="social-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
                 </span>
-                <span class="social-label" data-i18n="email">Email</span>
-                <svg class="social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                <span class="social-text">
+                  <span class="social-label" data-i18n="email">Email</span>
+                  <span class="social-sub" id="email-address" dir="ltr"></span>
+                </span>
               </a>
+              <button type="button" class="copy-btn" id="copy-email"
+                      aria-label="Copy email address" data-i18n-attr="aria-label:copyEmail">
+                <svg class="icon-copy" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg class="icon-check" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </button>
+              <span class="visually-hidden" id="copy-status" role="status"></span>
             </li>
             <li>
               <a class="social-link" href="#" data-social="linkedin" target="_blank" rel="noopener noreferrer">
